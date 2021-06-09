@@ -49,12 +49,12 @@ else
     RECOVERY="NO"
     # Not in the recovery environment, so we need a different path to the
     # patched USB.
-    if [ -d "/Volumes/Install macOS Big Sur" ]
+    if [ -d "/Volumes/Install macOS Monterey" ]
     then
-        IMGVOL="/Volumes/Install macOS Big Sur"
-    elif [ -d "/Volumes/Install macOS Big Sur Beta" ]
+        IMGVOL="/Volumes/Install macOS Monterey"
+    elif [ -d "/Volumes/Install macOS 12 Beta" ]
     then
-        IMGVOL="/Volumes/Install macOS Big Sur Beta"
+        IMGVOL="/Volumes/Install macOS 12 Beta"
     else
         # if this is inaccurate, there's an error check in the next top-level
         # if-then block which will catch it and do the right thing
@@ -65,7 +65,7 @@ fi
 # Now that $IMGVOL has hopefully been corrected, check again.
 if [ ! -d "$IMGVOL" ]
 then
-    echo "You must run this script from a patched macOS Big Sur"
+    echo "You must run this script from a patched macOS Monterey"
     echo "installer USB."
     exit 1
 fi
@@ -170,7 +170,7 @@ fi
 # Check if --2010 patch mode was specified on command line without a
 # WiFi option in addition. If so, go ahead and use mojave-hybrid.
 # (This is a situation where patch-kexts.sh is probably being used to
-# patch a Big Sur installation for another older Mac, and it's very clearly
+# patch a Monterey installation for another older Mac, and it's very clearly
 # best to err on the side of including the WiFi patch in this case.)
 #
 # Otherwise, if we're not unpatching and there is no WiFi option, go
@@ -208,19 +208,19 @@ then
     # some uncertainty about how the default case should behave, so I want
     # to catch darn near everything in a non-default case if possible.
     iMac,1|Power*|RackMac*|[0-9][0-9][0-9])
-        echo "Big Sur cannot run on PowerPC Macs."
+        echo "Monterey cannot run on PowerPC Macs."
         exit 1
         ;;
     MacBookPro1,?|MacBook1,1|Macmini1,1)
-        echo "Big Sur cannot run on 32-bit Macs."
+        echo "Monterey cannot run on 32-bit Macs."
         exit 1
         ;;
     MacBook[23],1|Macmini2,1|MacPro[12],1|MacBookAir1,1|MacBookPro[23],?|Xserve1,?)
-        echo "This Mac has a very old Intel Core 2 CPU which cannot run Big Sur."
+        echo "This Mac has a very old Intel Core 2 CPU which cannot run Monterey."
         exit 1
         ;;
     MacBookPro6,?)
-        echo "This Mac has a 1st gen Intel Core CPU which cannot boot Big Sur."
+        echo "This Mac has a 1st gen Intel Core CPU which cannot boot Monterey."
         exit 1
         ;;
     # Macs which are not supported by Apple but supported by this patcher.
@@ -271,13 +271,13 @@ then
     # These patterns will potentially match new Mac models which do not
     # exist yet.
     iMac14,4|iMac1[5-9],?|iMac[2-9][0-9],?|iMacPro*|MacPro[6-9],?|Macmini[7-9],?|MacBook[89],1|MacBook[1-9][0-9],?|MacBookAir[6-9],?|MacBookAir[1-9][0-9],?|MacBookPro1[1-9],?)
-        echo "This Mac is supported by Big Sur and does not need this patch."
+        echo "This Mac is supported by Monterey and does not need this patch."
         exit 1
         ;;
     # Default case. Ideally, this code will never execute.
     *)
         echo "Unknown Mac model. This may be a patcher bug, or a recent Mac model which is"
-        echo "already supported by Big Sur and does not need this patch."
+        echo "already supported by Monterey and does not need this patch."
         exit 1
         ;;
     esac
@@ -377,14 +377,14 @@ then
     exit 1
 fi
 
-# Check that the $VOLUME has macOS build 20*.
+# Check that the $VOLUME has macOS build 21*.
 SVPL="$VOLUME"/System/Library/CoreServices/SystemVersion.plist
 SVPL_VER=`fgrep '<string>10' "$SVPL" | sed -e 's@^.*<string>10@10@' -e 's@</string>@@' | uniq -d`
 SVPL_BUILD=`grep '<string>[0-9][0-9][A-Z]' "$SVPL" | sed -e 's@^.*<string>@@' -e 's@</string>@@'`
 
-if echo $SVPL_BUILD | grep -q '^20'
+if echo $SVPL_BUILD | grep -q '^21'
 then
-    echo -n "Volume appears to have a Big Sur installation (build" $SVPL_BUILD
+    echo -n "Volume appears to have a Monterey installation (build" $SVPL_BUILD
     echo "). Continuing."
 else
     if [ -z "$SVPL_VER" ]
@@ -701,7 +701,7 @@ then
             fi
         else
             echo "No metal supported video card found in this system!"
-            echo "Big Sur may boot, but will be barely usable due to lack of any graphics acceleration"
+            echo "Monterey may boot, but will be barely usable due to lack of any graphics acceleration"
         fi
     fi
 
@@ -728,7 +728,7 @@ then
             echo $CARD "NVIDIA Kepler Card found"
         else
             echo "No metal supported video card found in this system!"
-            echo "Big Sur may boot, but will be barely usable due to lack of any graphics acceleration"
+            echo "Monterey may boot, but will be barely usable due to lack of any graphics acceleration"
         fi
     fi
 
@@ -834,7 +834,7 @@ then
     # Update the kernel/kext collections.
     # kmutil *must* be invoked separately for boot and system KCs when
     # LegacyUSBInjector is being used, or the injector gets left out, at least
-    # as of Big Sur beta 2. So, we'll always do it that way (even without
+    # as of Monterey beta 2. So, we'll always do it that way (even without
     # LegacyUSBInjector, it shouldn't do any harm).
     #
     # I suspect it's not supposed to require the chroot, but I was getting weird
