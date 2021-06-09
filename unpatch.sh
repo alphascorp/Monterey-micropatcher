@@ -12,11 +12,11 @@ fi
 
 # Allow the user to drag-and-drop the USB stick in Terminal, to specify the
 # path to the USB stick in question. (Otherwise it will try hardcoded paths
-# for a presumed Big Sur Golden Master/public release, beta 2-or-later,
+# for a presumed Monterey Golden Master/public release, beta 2-or-later,
 # and beta 1, in that order.)
 if [ -z "$1" ]
 then
-    for x in "Install macOS Big Sur" "Install macOS Big Sur Beta" "Install macOS Beta"
+    for x in "Install macOS Monterey" "Install macOS Monterey Beta" "Install macOS Beta" "Install macOS 12 Beta"
     do
         if [ -d "/Volumes/$x/$x.app" ]
         then
@@ -28,7 +28,7 @@ then
 
     if [ ! -d "$APPPATH" ]
     then
-        echo "Failed to locate Big Sur recovery USB stick for unpatching."
+        echo "Failed to locate Monterey recovery USB stick for unpatching."
         echo "If all else fails, try specifying the path to the USB stick"
         echo "as a command line parameter to this script."
         echo
@@ -41,7 +41,7 @@ else
     APPPATH=`echo -n "$VOLUME"/Install\ macOS*.app`
     if [ ! -d "$APPPATH" ]
     then
-        echo "Failed to locate Big Sur recovery USB stick for unpatching."
+        echo "Failed to locate Monterey recovery USB stick for unpatching."
         echo "Make sure you specified the correct volume. You may also try"
         echo "not specifying a volume and allowing the unpatcher to find"
         echo "the volume itself."
