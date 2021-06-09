@@ -56,7 +56,7 @@ done
 # and beta 1, in that order.)
 if [ -z "$1" ]
 then
-    for x in "Install macOS Big Sur" "Install macOS Big Sur Beta" "Install macOS Beta"
+    for x in "Install macOS Monterey" "Install macOS Monterey Beta" "Install macOS Beta" "Install macOS 12 Beta"
     do
         if [ -d "/Volumes/$x/$x.app" ]
         then
