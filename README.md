@@ -35,7 +35,7 @@ Also, note that Macs without Metal GPUs (basically 2011 and earlier Macs, except
 - Late 2009 13" MacBook: 23 seconds
 
 Mostly compatible Mac models:
-- If you have a 2013 or later Mac, please check [Apple's official list of supported Mac models](https://www.apple.com/macos/big-sur/) (search the page for "See if") first, to make sure that you actually need this patcher.
+- If you have a 2013 or later Mac, please check [Apple's official list of supported Mac models](https://www.apple.com/macos/monterey-preview/) (search the page for "See if") first, to make sure that you actually need this patcher.
 - By the way, with the exception of Mac Pros, all of the Macs in this section officially support Catalina. This section is basically "Macs without official Big Sur support but with Metal support", with the exception of pre-2012 iMacs that have upgraded GPUs. (In fact, a 2011 iMac with upgraded GPU is almost equivalent to this category. Earlier iMacs may have compatibility problems caused by other components; see below.)
 - Late 2013 iMac: Everything should work (and, after step 14, you're finished -- no need for step 15 and later). Note that there have been some reports of very poor performance with Fusion Drives on this model when running Big Sur, which may be why Apple does not support Big Sur on this model.
 - 2010/2012 Mac Pro: You should first upgrade the graphics card, as you would for official compatibility with macOS Mojave. Once you have done that, everything should work after installation except for WiFi (which should work after post-installation patching in step 15) and possibly USB (there were some reports of USB problems with Big Sur betas, and I need to see if they are still happening and, if so, if they are patchable).
