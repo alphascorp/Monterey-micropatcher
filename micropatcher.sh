@@ -1,6 +1,6 @@
 #!/bin/bash
-VERSIONNUM=0.5.1
-VERSION="BarryKN Big Sur Micropatcher v$VERSIONNUM"
+VERSIONNUM=0.0.1
+VERSION="macOS 12 Monterey Micropatcher v$VERSIONNUM"
 
 ### begin function definitions ###
 
@@ -38,7 +38,7 @@ checkDirAccess() {
 
 echo $VERSION
 echo 'Thanks to jackluke, ASentientBot, highvoltage12v, testheit, and'
-echo 'ParrotGeek for their hard work to get Big Sur running on unsupported'
+echo 'ParrotGeek for their hard work to get Monterey running on unsupported'
 echo 'Macs! (See the README for more information.)'
 # Add a blank line of output to make things easier on the eyes.
 echo
@@ -53,11 +53,11 @@ fi
 
 # Allow the user to drag-and-drop the USB stick in Terminal, to specify the
 # path to the USB stick in question. (Otherwise it will try hardcoded paths
-# for a presumed Big Sur Golden Master/public release, beta 2-or-later,
+# for a presumed Monterey Golden Master/public release, beta 2-or-later,
 # and beta 1, in that order.)
 if [ -z "$1" ]
 then
-    for x in "Install macOS Big Sur" "Install macOS Big Sur Beta" "Install macOS Beta"
+    for x in "Install macOS Monterey" "Install macOS Monterey Beta" "Install macOS Beta" "Install macOS 12 Beta"
     do
         if [ -d "/Volumes/$x/$x.app" ]
         then
@@ -69,7 +69,7 @@ then
 
     if [ ! -d "$APPPATH" ]
     then
-        echo "Failed to locate Big Sur recovery USB stick."
+        echo "Failed to locate Monterey recovery USB stick."
         echo "Remember to create it using createinstallmedia, and do not rename it."
         echo "If all else fails, try specifying the path to the USB stick"
         echo "as a command line parameter to this script."
@@ -83,7 +83,7 @@ else
     APPPATH=`echo -n "$VOLUME"/Install\ macOS*.app`
     if [ ! -d "$APPPATH" ]
     then
-        echo "Failed to locate Big Sur recovery USB stick for patching."
+        echo "Failed to locate Monterey recovery USB stick for patching."
         echo "Make sure you specified the correct volume. You may also try"
         echo "not specifying a volume and allowing the patcher to find"
         echo "the volume itself."
