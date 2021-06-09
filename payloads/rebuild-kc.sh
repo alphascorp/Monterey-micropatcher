@@ -90,7 +90,7 @@ fi
 # Update the kernel/kext collections.
 # kmutil *must* be invoked separately for boot and system KCs when
 # LegacyUSBInjector is being used, or the injector gets left out, at least
-# as of Big Sur beta 2. So, we'll always do it that way (even without
+# as of Monterey beta 2. So, we'll always do it that way (even without
 # LegacyUSBInjector, it shouldn't do any harm).
 #
 # I suspect it's not supposed to require the chroot, but I was getting weird
