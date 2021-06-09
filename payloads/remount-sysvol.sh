@@ -85,7 +85,7 @@ fi
 
 # Next, check that the volume has /System/Library/Extensions (i.e. make sure
 # it's actually the system volume and not the data volume or something).
-# DO NOT check for /System/Library/CoreServices here, or Big Sur data drives
+# DO NOT check for /System/Library/CoreServices here, or Monterey data drives
 # as well as system drives will pass the check!
 if [ ! -d "$VOLUME/System/Library/Extensions" ]
 then
@@ -102,7 +102,7 @@ SVPL_BUILD=`grep '<string>[0-9][0-9][A-Z]' "$SVPL" | sed -e 's@^.*<string>@@' -e
 
 if echo $SVPL_BUILD | grep -q '^20'
 then
-    ecrr -n "Volume appears to have a Big Sur installation (build" $SVPL_BUILD
+    ecrr -n "Volume appears to have a Monterey installation (build" $SVPL_BUILD
     ecrr "). Continuing."
 else
     if [ -z "$SVPL_VER" ]
