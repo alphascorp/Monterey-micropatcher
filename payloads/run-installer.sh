@@ -10,7 +10,7 @@ BASE='/Volumes/Image Volume'
 
 # Figure out what the installer app is called (similar to how micropatcher.sh
 # figures out the installer USB's name).
-for x in "Install macOS Big Sur" "Install macOS Big Sur Beta" "Install macOS Beta"
+for x in "Install macOS Monterey" "Install macOS Monterey Beta" "Install macOS Beta" "Install macOS 12 Beta"
 do
     if [ -d "$BASE/$x.app" ]
     then
